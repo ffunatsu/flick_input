@@ -1,5 +1,8 @@
 # flick_input
 
+[![Crates.io](https://img.shields.io/crates/v/flick_input.svg)](https://crates.io/crates/flick_input)
+[![License: 0BSD](https://img.shields.io/badge/License-0BSD-blue.svg)](LICENSE)
+
 [English](README.md) | [日本語](README_ja.md)
 
 Use your smartphone's flick input as a wireless keyboard for your PC.
