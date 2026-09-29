@@ -2,6 +2,12 @@
 name = "flick_input"
 version = "0.1.0"
 edition = "2021"
+description = "smartphone as a wireless keyboard for PC"
+license = "0BSD"
+repository = "https://github.com/ffunatsu/flick_input"
+readme = "README.md"
+keywords = ["keyboard", "flick", "mobile", "input", "remote"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 axum = "0.8"
