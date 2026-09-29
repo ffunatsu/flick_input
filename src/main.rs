@@ -6,10 +6,19 @@ use axum::{
     routing::{get, post},
     Json, Router,
 };
+use clap::Parser;
 use qrcode::render::unicode::Dense1x2;
 use qrcode::QrCode;
 use serde::Deserialize;
 use std::net::SocketAddr;
+
+#[derive(Parser, Debug)]
+#[command(version, about = "smartphone as a wireless keyboard for PC")]
+struct Args {
+    /// Port to listen on
+    #[arg(short, long, default_value_t = 8080)]
+    port: u16,
+}
 
 #[derive(Deserialize)]
 struct InputPayload {
@@ -18,7 +27,8 @@ struct InputPayload {
 
 #[tokio::main]
 async fn main() {
-    let port = 8080;
+    let args = Args::parse();
+    let port = args.port;
     let local_ip = local_ip_address::local_ip().unwrap_or(std::net::IpAddr::V4(std::net::Ipv4Addr::new(127, 0, 0, 1)));
     let url = format!("http://{}:{}", local_ip, port);
 

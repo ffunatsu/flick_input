@@ -21,6 +21,12 @@ Or run directly from source:
 cargo run --release
 ```
 
+*(Optional) Specify a custom port with `-p` or `--port`:*
+```bash
+flick_input -p 3000
+# or: flick_input --port=3000
+```
+
 ### 2. Connect from Smartphone
 
 1. Make sure your PC and smartphone are connected to the same Wi-Fi.
