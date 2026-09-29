@@ -1,48 +1,61 @@
 # flick_input
 
-Send text from mobile flick input directly to PC via local web server.
+[English](README.md) | [日本語](README_ja.md)
 
-## Overview
+Use your smartphone's flick input as a wireless keyboard for your PC.
 
-`flick_input` runs a lightweight HTTP/WebSocket server on PC. A mobile device connected to the same local network accesses the web interface, takes text input (using the mobile OS flick keyboard), and sends confirmed text to the PC. The PC injects received text as simulated keystrokes into the active window.
+## Quick Start
 
-## Architecture
+### 1. Download & Run
 
-- **Backend (Rust)**:
-  - Web server (Axum) serving a mobile-friendly web page.
-  - HTTP endpoint receiving confirmed text payloads.
-  - Text input injection into the active window on PC.
-  - QR code generation in terminal for quick connection.
-- **Frontend (HTML/JS)**:
-  - Mobile web interface optimized for seamless flick typing without page reloads.
-  - Submits confirmed text asynchronously (Fetch API / WebSocket) on Enter or Send button.
-  - Automatically resets input field while retaining keyboard focus for continuous typing.
+Download the prebuilt binary for your OS from **[GitHub Releases](https://github.com/ffunatsu/flick_input/releases)**, then run it:
 
-## Prerequisites
+- **Windows**: Double-click `flick_input.exe`
+- **macOS / Linux**: Run `./flick_input` in terminal
 
-- Rust (cargo)
-- PC and mobile device connected to the same Wi-Fi / local network.
-- **macOS**: Accessibility permission must be granted to the terminal application running this program.
-- **Linux**: X11 or Wayland with appropriate permissions.
-
-## Installation & Running
-
+Or run directly from source:
 ```bash
 cargo run --release
 ```
 
-1. Run the application on PC.
-2. Scan the QR code displayed in the terminal using your smartphone camera (or enter the URL manually).
-3. Tap the input field on your smartphone and type using flick input.
-4. Confirm input (Enter or Send button). The text will appear at the cursor on your PC.
+### 2. Connect from Smartphone
 
-## Configuration
+1. Make sure your PC and smartphone are connected to the same Wi-Fi.
+2. Scan the QR code displayed in the terminal with your phone's camera (or open the printed URL in a browser).
 
-Default settings can be adjusted via CLI options or environment variables:
+### 3. Type
 
-- `--port` / `PORT`: Listening port (default: `8080`).
-- `--host` / `HOST`: Bind address (default: `0.0.0.0`).
+1. Tap the text box on your phone and type using flick input.
+2. Press **Send** (or Enter). The confirmed text will be typed directly into your PC's active window.
+
+---
+
+## OS Requirements
+
+- **Windows**: Ready to use out of the box.
+- **macOS**: Grant "Accessibility" permission to the terminal running the app (**System Settings > Privacy & Security > Accessibility**).
+- **Linux**: Requires X11 or Wayland with appropriate permissions.
+
+---
+
+## How It Works
+
+1. `flick_input` runs a lightweight local web server on your PC.
+2. The smartphone accesses the web UI without installing any app.
+3. Confirmed text is sent asynchronously to the PC, which simulates keystrokes at the cursor position.
+
+---
+
+## Build from Source
+
+```bash
+git clone https://github.com/ffunatsu/flick_input.git
+cd flick_input
+cargo build --release
+```
+
+The binary will be created at `target/release/flick_input`.
 
 ## License
 
-MIT
+0BSD
