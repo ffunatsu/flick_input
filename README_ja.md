@@ -21,6 +21,12 @@
 cargo run --release
 ```
 
+*(オプション) ポート番号を指定する場合（`-p` または `--port`）：*
+```bash
+flick_input -p 3000
+# または: flick_input --port=3000
+```
+
 ### 2. スマホから接続
 
 1. PCとスマホを同じWi-Fi（ローカルネットワーク）に接続します。
