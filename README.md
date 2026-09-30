@@ -7,6 +7,9 @@
 
 Use your smartphone's flick input as a wireless keyboard for your PC.
 
+> [!Warning]
+> AI assisted contents. Be careful before use.
+
 ## Quick Start
 
 ### 1. Download & Run
